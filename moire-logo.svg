@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-labelledby="title desc">
+  <title id="title">Rotating graphene moiré lattice</title>
+  <desc id="desc">One hexagonal atomic lattice rotates from zero to thirty degrees over another, forming a changing moiré pattern.</desc>
+  <style>
+    .twisted-layer {
+      transform-box: view-box;
+      transform-origin: 40px 40px;
+      animation: twist 9s ease-in-out infinite alternate;
+    }
+    @keyframes twist {
+      0%, 8% { transform: rotate(.8deg); }
+      92%, 100% { transform: rotate(30deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .twisted-layer { animation: none; transform: rotate(5.3deg); }
+    }
+  </style>
+  <defs>
+    <clipPath id="hexagon">
+      <path d="M40 3 72 21.5v37L40 77 8 58.5v-37Z"/>
+    </clipPath>
+    <pattern id="carbon-dark" width="5.543" height="9.6" patternUnits="userSpaceOnUse">
+      <g fill="#172233">
+        <circle cx="0" cy="0" r=".82"/><circle cx="5.543" cy="0" r=".82"/>
+        <circle cx="0" cy="3.2" r=".82"/><circle cx="2.771" cy="4.8" r=".82"/>
+        <circle cx="2.771" cy="8" r=".82"/><circle cx="0" cy="9.6" r=".82"/>
+        <circle cx="5.543" cy="9.6" r=".82"/>
+      </g>
+    </pattern>
+    <pattern id="carbon-blue" width="5.543" height="9.6" patternUnits="userSpaceOnUse">
+      <g fill="#168cf0">
+        <circle cx="0" cy="0" r=".82"/><circle cx="5.543" cy="0" r=".82"/>
+        <circle cx="0" cy="3.2" r=".82"/><circle cx="2.771" cy="4.8" r=".82"/>
+        <circle cx="2.771" cy="8" r=".82"/><circle cx="0" cy="9.6" r=".82"/>
+        <circle cx="5.543" cy="9.6" r=".82"/>
+      </g>
+    </pattern>
+  </defs>
+  <path d="M40 3 72 21.5v37L40 77 8 58.5v-37Z" fill="#fff"/>
+  <g clip-path="url(#hexagon)">
+    <rect x="-25" y="-25" width="130" height="130" fill="url(#carbon-dark)" opacity=".62"/>
+    <g class="twisted-layer">
+      <rect x="-25" y="-25" width="130" height="130" fill="url(#carbon-blue)" opacity=".76"/>
+    </g>
+    <circle cx="40" cy="40" r="2.1" fill="#0875e1"/>
+  </g>
+  <path d="M40 3 72 21.5v37L40 77 8 58.5v-37Z" fill="none" stroke="#0875e1" stroke-width="2.4"/>
+</svg>
